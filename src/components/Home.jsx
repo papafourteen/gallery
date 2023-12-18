@@ -1,12 +1,64 @@
-import React from 'react'
-import { Header } from './Header'
-import { UploadForm } from './UploadForm'
+import React from "react";
+import { useState, useEffect } from "react";
+import { stor } from "../firebaseConfig";
+import './Home.scss'
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  list,
+} from "firebase/storage";
+import { v4 } from "uuid";
+import { Header } from "./Header";
 
 export const Home = () => {
+  const [image, setImage] = useState(null);
+  const [imageurl, setImageUrl] = useState([]);
+  const imagelistref = ref(stor, "images/");
+
+  const uploadFile = () => {
+    if (image == null) return;
+    const imageRef = ref(stor, `images/${image.name + v4()}`);
+    uploadBytes(imageRef, image).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrl((prev) => [...prev, url]);
+        //console.log("image uploaded successfully", imageurl);
+      });
+    });
+  };
+  useEffect(() => {
+    listAll(imagelistref).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrl((prev) => [...prev, url]);
+          console.log(image)
+        });
+      });
+    });
+  }, []);
   return (
-    <div>
-    <Header />
-    <UploadForm />
-    </div>
-  )
-}
+    
+      <div className="App">
+        <Header />
+        
+        <input
+          type="file"
+          name=""
+          id=""
+          onChange={(event) => {
+            setImage(event.target.files[0]);
+            
+          }}
+        />
+        <button onClick={uploadFile}>Upload The Image</button>
+   
+        
+      {imageurl.map((url) => {
+          return <img src={url}/>;
+        })}
+        
+      </div>
+    
+  );
+};
