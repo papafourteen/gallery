@@ -1,0 +1,38 @@
+.button-holder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .text-gradient{
+        background: linear-gradient(to left, rgb(225, 225, 238),rgb(8, 4, 20));
+        background-clip: text;
+        color: transparent;
+        -webkit-background-clip: text;
+      
+      }
+
+    button{
+        padding: 10px;
+        border-radius: 1rem;
+        color: aliceblue;
+        border: 1px solid aliceblue;
+        background: transparent;
+        cursor: pointer;
+        margin-top: 100px;
+    }
+
+    .social{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        flex-wrap: wrap;
+       backface-visibility: hidden;
+        gap: 20px;
+        padding-right: 0.5rem;
+        
+    }
+    .fa{
+        font-size: 20px;
+    }

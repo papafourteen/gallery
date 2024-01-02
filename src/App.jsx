@@ -1,7 +1,8 @@
  
-import './App.scss'
+import './App.css'
 import { Home } from './components/Home'
 import { SignIn } from './components/SignIn'
+import{BrowserRouter,Routes,Route} from 'react-router-dom'
 
 
 function App() {
@@ -9,8 +10,16 @@ function App() {
 
   return (
     
-  <Home />
+    <BrowserRouter>
+    
+        <Routes>
+          <Route path='/' element={<SignIn />}/>
+         <Route path='/home' element={<Home/>}/>
+         
+         
+        </Routes>
       
+    </BrowserRouter>
     
    
   )

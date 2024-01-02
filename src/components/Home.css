@@ -1,0 +1,94 @@
+
+.header{
+    text-align: center;
+}
+.App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+    
+
+    .input-holder{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+            border-radius: 1rem;
+            color: aliceblue;
+            border: 1px solid aliceblue;
+        
+            
+
+            
+    }
+    .input-holder:hover{
+        background: linear-gradient(to left, rgb(26, 18, 16), rgb(50, 92, 216));
+        
+       
+
+    }
+   
+    button{
+            padding: 10px;
+            border-radius: 1rem;
+            color: aliceblue;
+            border: 1px solid aliceblue;
+            background: transparent;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover{
+            
+            background: black;
+            
+            
+        }
+
+        input{
+            opacity: 0;
+            cursor: pointer;
+            
+            
+        }
+
+    
+    
+.logout{
+    padding: 10px;
+            border-radius: 1rem;
+            color: aliceblue;
+            border: 1px solid aliceblue;
+            background: transparent;
+            cursor: pointer;
+            margin-top: 20px;
+    }
+    p{
+        background: transparent;
+    }
+    .error{
+    margin-top: 10px;
+     color:white;
+     border-radius: 1rem;
+    border: 1px solid red;
+    background: none;
+    background-color: red;
+
+    
+    }
+    .ok{
+        padding: 5px;
+    margin-top: 10px;
+     color:white;
+     border-radius: 1rem;
+    border: 1px solid white;
+    background: none;
+    background-color: green;
+        
+    }
+    
+   
+    
